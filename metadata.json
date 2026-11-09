@@ -1,0 +1,8 @@
+{
+  "name": "Remix Windows 10 Launcher for Android",
+  "description": "High-fidelity Windows 10 desktop launcher for Android with Fluent Design, Live Tiles, Taskbar, Action Center, and native Android Bridge integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

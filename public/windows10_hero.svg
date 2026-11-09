@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient: Deep blue vignette -->
+    <radialGradient id="bgGlow" cx="48%" cy="48%" r="65%">
+      <stop offset="0%" stop-color="#0a2a54" />
+      <stop offset="35%" stop-color="#061c3a" />
+      <stop offset="70%" stop-color="#020e20" />
+      <stop offset="100%" stop-color="#010710" />
+    </radialGradient>
+
+    <!-- Volumetric Light Beam Rays -->
+    <linearGradient id="ray1" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#00b4ff" stop-opacity="0.45" />
+      <stop offset="30%" stop-color="#0078d7" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#020e20" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="ray2" x1="10%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5cd2ff" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#0078d7" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#020e20" stop-opacity="0" />
+    </linearGradient>
+
+    <radialGradient id="centerBurst" cx="48%" cy="48%" r="28%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="25%" stop-color="#80d4ff" stop-opacity="0.75" />
+      <stop offset="55%" stop-color="#0078d7" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#0078d7" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Laser Light Edge Gradients for the 4 Windows Quadrants -->
+    <linearGradient id="windowGlowTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="30%" stop-color="#69c8ff" />
+      <stop offset="100%" stop-color="#0078d7" />
+    </linearGradient>
+
+    <!-- Blur filter for atmospheric smoke / bloom -->
+    <filter id="bloom">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="30" />
+    </filter>
+  </defs>
+
+  <!-- Deep Dark Blue Vignette Canvas -->
+  <rect width="1920" height="1080" fill="url(#bgGlow)" />
+
+  <!-- Diagonal Light Rays Beaming from the Windows Logo -->
+  <g opacity="0.85">
+    <polygon points="900,490 1920,0 1920,400 970,510" fill="url(#ray1)" />
+    <polygon points="940,540 1920,380 1920,850 960,570" fill="url(#ray2)" />
+    <polygon points="920,560 1920,800 1920,1080 880,590" fill="url(#ray1)" />
+    <polygon points="860,540 1600,1080 1100,1080 820,560" fill="url(#ray2)" />
+    <polygon points="880,480 1600,0 1100,0 840,460" fill="url(#ray1)" />
+  </g>
+
+  <!-- Atmospheric Glow Burst in Center -->
+  <circle cx="910" cy="520" r="380" fill="url(#centerBurst)" filter="url(#softGlow)" opacity="0.65" />
+
+  <!-- The Windows 10 Angled 4-Quadrant Logo (Hero Motif) -->
+  <!-- Perspective coordinates angled toward the left-center -->
+  <g transform="translate(730, 360)">
+    <!-- Top-Left Quadrant -->
+    <path d="M40 70 L 165 48 L 165 162 L 40 162 Z" 
+          fill="none" 
+          stroke="url(#windowGlowTop)" 
+          stroke-width="5" 
+          filter="url(#bloom)" />
+    <path d="M40 70 L 165 48 L 165 162 L 40 162 Z" 
+          fill="#001a38" 
+          fill-opacity="0.45" />
+
+    <!-- Bottom-Left Quadrant -->
+    <path d="M40 176 L 165 176 L 165 290 L 40 268 Z" 
+          fill="none" 
+          stroke="url(#windowGlowTop)" 
+          stroke-width="5" 
+          filter="url(#bloom)" />
+    <path d="M40 176 L 165 176 L 165 290 L 40 268 Z" 
+          fill="#001a38" 
+          fill-opacity="0.45" />
+
+    <!-- Top-Right Quadrant -->
+    <path d="M180 45 L 340 18 L 340 162 L 180 162 Z" 
+          fill="none" 
+          stroke="#ffffff" 
+          stroke-width="6" 
+          filter="url(#bloom)" />
+    <path d="M180 45 L 340 18 L 340 162 L 180 162 Z" 
+          fill="#00244d" 
+          fill-opacity="0.4" />
+
+    <!-- Bottom-Right Quadrant -->
+    <path d="M180 176 L 340 176 L 340 320 L 180 293 Z" 
+          fill="none" 
+          stroke="url(#windowGlowTop)" 
+          stroke-width="6" 
+          filter="url(#bloom)" />
+    <path d="M180 176 L 340 176 L 340 320 L 180 293 Z" 
+          fill="#00244d" 
+          fill-opacity="0.4" />
+
+    <!-- Beaming Light Outlines on the Window Frames -->
+    <line x1="165" y1="48" x2="340" y2="18" stroke="#ffffff" stroke-width="4" filter="url(#bloom)" opacity="0.9" />
+    <line x1="165" y1="162" x2="340" y2="162" stroke="#ffffff" stroke-width="4" filter="url(#bloom)" opacity="0.95" />
+    <line x1="165" y1="176" x2="340" y2="176" stroke="#ffffff" stroke-width="4" filter="url(#bloom)" opacity="0.95" />
+    <line x1="165" y1="290" x2="340" y2="320" stroke="#ffffff" stroke-width="4" filter="url(#bloom)" opacity="0.9" />
+  </g>
+
+  <!-- Horizontal Floor Horizon Light Reflection -->
+  <line x1="0" y1="1078" x2="1920" y2="1078" stroke="#0078d7" stroke-width="2" opacity="0.25" />
+</svg>

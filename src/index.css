@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --accent: #0078d7;
+    --accent-light: #429ce3;
+    --accent-dark: #005a9e;
+    --accent-glow: rgba(0, 120, 215, 0.45);
+    --acrylic-bg: rgba(26, 26, 26, 0.78);
+    --acrylic-solid: #1f1f1f;
+    --acrylic-blur: blur(24px) saturate(130%);
+    --surface-card: rgba(255, 255, 255, 0.08);
+    --surface-hover: rgba(255, 255, 255, 0.14);
+    --surface-active: rgba(255, 255, 255, 0.22);
+    --text-main: #ffffff;
+    --text-sub: rgba(255, 255, 255, 0.65);
+    --border-subtle: rgba(255, 255, 255, 0.12);
+    --reveal-light: rgba(255, 255, 255, 0.35);
+    --taskbar-height: 48px;
+    --fluent-ease: cubic-bezier(0.1, 0.9, 0.2, 1);
+  }
+
+  .light {
+    --acrylic-bg: rgba(243, 243, 243, 0.85);
+    --acrylic-solid: #f3f3f3;
+    --surface-card: rgba(0, 0, 0, 0.05);
+    --surface-hover: rgba(0, 0, 0, 0.10);
+    --surface-active: rgba(0, 0, 0, 0.16);
+    --text-main: #181818;
+    --text-sub: rgba(0, 0, 0, 0.62);
+    --border-subtle: rgba(0, 0, 0, 0.12);
+    --reveal-light: rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Strict Windows 10 Square Geometry Rule */
+*, *::before, *::after {
+  border-radius: 0px !important;
+}
+
+/* Custom Windows 10 scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 120, 0.4);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 0px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.7);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* 3D Flip for Live Tiles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Start Menu & Tiles Smooth Entrance Animations */
+@keyframes win10MenuSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes win10TileCascade {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes win10AppsSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-win10-menu {
+  animation: win10MenuSlideUp 240ms cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+.animate-win10-apps {
+  animation: win10AppsSlideUp 280ms cubic-bezier(0.1, 0.9, 0.2, 1) 40ms backwards;
+}
+
+.animate-win10-tile {
+  animation: win10TileCascade 300ms cubic-bezier(0.1, 0.9, 0.2, 1) backwards;
+}
+
+/* Fluent Reveal Border effect */
+.fluent-reveal-border {
+  position: relative;
+}
+
+.fluent-reveal-border::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(circle 120px at var(--mouse-x, -200px) var(--mouse-y, -200px), var(--reveal-light), transparent 70%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.fluent-reveal-border:hover::after,
+.fluent-reveal-border.touched::after {
+  opacity: 1;
+}

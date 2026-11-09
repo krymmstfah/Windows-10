@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="winGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0078d7"/>
+      <stop offset="100%" stop-color="#005a9e"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="#181818"/>
+  <g transform="translate(64, 64) scale(0.75)" fill="url(#winGrad)">
+    <!-- Windows 10 perspective logo -->
+    <path d="M0 71.04L209.6 42.66V245.34H0V71.04ZM0 266.66H209.6V469.34L0 440.96V266.66ZM238.4 38.74L512 0V245.34H238.4V38.74ZM238.4 266.66H512V512L238.4 473.26V266.66Z"/>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "Windows 10 Launcher for Android",
+  "short_name": "Win10 Home",
+  "description": "Windows 10 desktop launcher experience for Android with Fluent Design, Live Tiles, Taskbar, and Action Center.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#000000",
+  "theme_color": "#0078d7",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
